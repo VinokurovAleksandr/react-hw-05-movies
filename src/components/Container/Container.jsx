@@ -1,6 +1,11 @@
 import React from 'react';
-import s from './Container.module.css'
+import { Wrapper } from './Container.styled';
 
-const Container = ({ children }) => <div className={s.Container}>{children}</div>;
 
-export default Container;
+
+export const Container = ({ children }) => {
+    return <Wrapper>{children}</Wrapper>;
+
+};
+   
+
