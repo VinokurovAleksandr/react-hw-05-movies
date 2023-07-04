@@ -1,16 +1,26 @@
-import { NavLink } from 'react-router-dom';
+import React from 'react';
+import { Container } from '../Container/Container';
+import { NavConatiner, NavList, Nav,Link } from './HomePage.styled';
 
-function HomePage () {
 
-    <nav>
-        {/* <NavLink>Home</NavLink>
-        <NavLink>Movies</NavLink> */}
-        <a>
-            
-       </a>HomePage
-    </nav>
-    {/* <p>Hello </p> */}
-   
+
+export const HomePage = () => {
+
+    return (
+
+        <NavConatiner>
+        <Container>
+            <NavList>
+                <Nav>
+                    <Link to='/'>Home</Link>
+                    <Link to='/movies'>Movie</Link>
+                </Nav>
+                </NavList> 
+    </Container>
+    </NavConatiner>
+
+    
+    )
 };
 
-export default HomePage;
+
