@@ -1,4 +1,5 @@
 import React from 'react';
+// import { ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './HomePage/HomePage';
 import { MoviesPage } from './Pages/MoviesPage/MoviesPage';
@@ -27,17 +28,10 @@ export function App () {
         <Route path='*' element={<NotFoundView/>} />
       </Routes>
      
-      
+     
+        
     </Container>
-  
 
-   
-
-    
-    
-
-
-  
    
   )
 
