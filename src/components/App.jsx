@@ -1,11 +1,11 @@
 import React from 'react';
 // import { ToastContainer } from 'react-toastify';
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from './HomePage/HomePage';
+import { HomePage } from './/Pages/HomePage/HomePage';
 import { MoviesPage } from './Pages/MoviesPage/MoviesPage';
-import {NotFoundView} from './Pages/NotFoundView/NotFoundView'
-
-import {HomeView} from './Pages/HomeView/HomeView';
+import { NotFoundView } from './NotFoundView/NotFoundView';
+import { HomeView } from './HomeView/HomeView';
+import MovieDetails from './Pages/MovieDetailsPage/MovieDetailsPage'
 
 import { Container } from './Container/Container';
 // import { NavConatiner, NavList } from './HomePage/HomePage.styled';
@@ -22,8 +22,11 @@ export function App () {
     <Container>
     <HomePage />
       <Routes>  
-          <Route path='/' element={<HomeView/>}/>     
-          <Route path='movies' element={<MoviesPage/>}/>
+        <Route path='/' element={<HomeView />} />  
+        <Route path='/movies' element={<MoviesPage />} />
+        <Route path='/movies/:movieId' element={ <MovieDetails/> } />
+        
+        
 
         <Route path='*' element={<NotFoundView/>} />
       </Routes>

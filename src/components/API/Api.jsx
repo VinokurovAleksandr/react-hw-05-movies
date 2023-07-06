@@ -28,6 +28,14 @@ export const fetchTrendingMovies = async () => {
     
 };
 
+export const fetchMovieDetails = async movieId => {
+    const { data } = await axios.get(`movie/${movieId}`, params);
+       
+    return data;
+
+    
+};
+
 
 
 // const options = {

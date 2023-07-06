@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '../Container/Container';
+import { Container } from '../../Container/Container';
 import { NavConatiner, NavList, Nav,Link } from './HomePage.styled';
 
 
