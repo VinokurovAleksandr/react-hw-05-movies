@@ -5,7 +5,8 @@ import { HomePage } from './/Pages/HomePage/HomePage';
 import { MoviesPage } from './Pages/MoviesPage/MoviesPage';
 import { NotFoundView } from './NotFoundView/NotFoundView';
 import { HomeView } from './HomeView/HomeView';
-import MovieDetails from './Pages/MovieDetailsPage/MovieDetailsPage'
+import MovieDetails from './Pages/MovieDetailsPage/MovieDetailsPage';
+import {Cast} from 'components/Cast/Cast';
 
 import { Container } from './Container/Container';
 // import { NavConatiner, NavList } from './HomePage/HomePage.styled';
@@ -24,7 +25,9 @@ export function App () {
       <Routes>  
         <Route path='/' element={<HomeView />} />  
         <Route path='/movies' element={<MoviesPage />} />
-        <Route path='/movies/:movieId' element={ <MovieDetails/> } />
+        <Route path='/movies/:movieId' element={ <MovieDetails/> }>
+          <Route path='/movies/:movieId/cast' element={<Cast/>} />
+        </Route>
         
         
 

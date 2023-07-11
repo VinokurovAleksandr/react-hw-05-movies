@@ -32,9 +32,20 @@ export const fetchMovieDetails = async movieId => {
     const { data } = await axios.get(`movie/${movieId}`, params);
        
     return data;
-
-    
 };
+
+export const fetchMovieCast = async movieId => {
+    const { data } = await axios.get(`movie/${movieId}/credits`, params);
+       
+    return data;
+};
+
+export const fetchMovieReviews = async movieId => {
+    const { data } = await axios.get(`movie/${movieId}/reviews`, params);
+       
+    return data;
+};
+
 
 
 

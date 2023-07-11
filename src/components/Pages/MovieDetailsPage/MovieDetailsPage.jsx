@@ -1,24 +1,33 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import {fetchMovieDetails} from 'components/API/Api'
-import {MovieDetailsInfo} from 'components/MovieDetailsInfo/MovieDetailsInfo'
+
+import {Cast} from 'components/Cast/Cast';
+import { MovieDetailsInfo } from 'components/MovieDetailsInfo/MovieDetailsInfo'
+import { fetchMovieDetails } from 'components/API/Api'
+import { Loader } from 'components/Loader/Loader';
+
 export default function MovieDetails() {
-    
+
     const { movieId } = useParams();
     
     const [movie, setMovie] = useState([]);
-
+    const [loading, setLoading] = useState(false);
+ 
+ 
     useEffect(() => {
         const getMovieDetails = async () => {
             try {
+                setLoading(true)
                 const result = await fetchMovieDetails(movieId)
-                console.log(result);
+              
                 
                 setMovie(result)
             } catch (error) {
                 console.log(error);
                 
+            } finally { 
+                setLoading(false)
             }
         }
        getMovieDetails()
@@ -26,19 +35,13 @@ export default function MovieDetails() {
     
 
     return (
+   
         <>
-            <MovieDetailsInfo text={`${movieId}`} />
-
-        {movie && <>
-                <img src={movie.poster_path}
-                    alt={movie.title} />
-                    <h2> {movie.original_title}</h2>
-                   
-                </>
-               
-        } 
+            {loading && <Loader loading={loading} />}
+            <MovieDetailsInfo movie={movie} />
+            {/* <Cast /> */}
+            
         </>
-       
     )
 };
 
