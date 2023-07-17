@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link  } from 'react-router-dom';
+import { Link, useLocation  } from 'react-router-dom';
 
 import { MoviesTitle } from './HomeView.styled';
 import { fetchTrendingMovies } from 'components/API/Api';
@@ -12,6 +12,9 @@ export function HomeView() {
 
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
+    const url = useLocation();
+    console.log(url);
+    
     
     
     useEffect(() => {
@@ -33,11 +36,32 @@ export function HomeView() {
   }, []);
     
     return (
-    <>
+        <>
+            {loading && <Loader loading={ loading} />}
    <MoviesTitle>Tending today</MoviesTitle>  
-    {loading && <Loader loading={ loading} />}
-            {movies && movies.map((movie) => <li key={movie.id}>
-                <Link to={`/movies/${movie.id}`}>{movie.title}</Link></li>)}        
+    
+            
+            <ul>
+                {movies.map(movie =>
+               
+                      <li key={movie.id}>
+
+                        <Link to={`/movies/${movie.id}`}>
+                            <img
+                                width='200 px'
+                                src={movie.poster_path
+                                ? 'https://image.tmdb.org/t/p/w500' + movie.poster_path
+                                : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'}
+                                                alt={movie.title} />
+                            <p>
+                                 {movie.title} ({new Date(movie.release_date).getFullYear()})
+                            </p></Link>
+                
+                  
+                </li>
+              )}      
+            </ul>
+              
             
         
         </>       

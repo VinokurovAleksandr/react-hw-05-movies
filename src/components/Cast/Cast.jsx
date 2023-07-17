@@ -1,51 +1,55 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useParams, useLocation } from 'react-router-dom';
+import { useParams, } from 'react-router-dom';
 
-import {fetchMovieCast} from '../API/Api';
+import {fetchMovieCast} from 'components/API/Api';
+import { Loader } from 'components/Loader/Loader';
 
-export const Cast = () => {
 
-    const { movieId } = useParams();
-    const location = useLocation();
-    console.log(location.state);
+function Cast () {
+
+ const { movieId } = useParams();
+    const [cast, setCast] = useState([]);
+    const [loading, setLoading] = useState(false);
     
-    const [casts, setCasts] = useState([]);
-    
-    useEffect(() => {
-        const getCast = async () => {
-            try {
-                const resultCast = await fetchMovieCast(movieId)
-                console.log(resultCast);
-                setCasts(resultCast)
+ useEffect(() => {
+    const getCast = async () => {
+        try {
+             setLoading(true)
+            const {cast} = await fetchMovieCast(movieId)  
+             setCast(cast)
+           
+        } catch (error) {
+            console.log(error);
                 
-            } catch (error) {
-                console.log(error);
-                
+        } finally {
+                setLoading(false);
             }
-        }
-        getCast();
-    }, [movieId]);
+    }
+     getCast();
+ }, [movieId]);
 
    
 
     return (
+        
         <>
-            {casts && casts.map(cast => <ul>
-                <li key={cast.id}>
-                <div>
-                     <img src={cast.poster_path
-              ? 'https://image.tmdb.org/t/p/w500' + cast.poster_path
+            {loading && <Loader loading={loading} />}
+            <ul>
+                {cast.map(actor => {
+                    return (
+                        <li key={actor.credit_id}>
+                            
+                <img src={actor.profile_path
+              ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
               : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'}
-                    alt={cast.name} />
-                </div>
-                <div>
-                    <p>{cast.character}</p>
-                </div>
+                                alt={actor.name} />
+                            <p>{actor.original_name} </p>
+            
+                        </li>
+                    )
+                })}
+         </ul>
+         </>
+     ) };
 
-            </li>
-            </ul>)}
-            <p>Hello</p>
-       </>
-
-    )
-};
+      export default Cast;
