@@ -12,7 +12,7 @@ export const MovieDetails = () => {
     const [movie, setMovie] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const location = useLocation();
+    const location = useLocation(); 
     const backPageLink = location.state?.from ?? '/';
    
     

@@ -36,14 +36,8 @@ export const fetchMovieReviews = async movieId => {
        
     return data;
 };
-export const searchMovie = async (query, page)  => {
-    const { data } = await axios.get('search/movie', {
-         params: {
-            api_key: API_KEY,
-            query,
-             page,
-    }
-    });
+export const searchMovie = async (movie)  => {
+    const { data } = await axios.get(`search/movie?query=${movie}`, params);
        
     return data;
 };

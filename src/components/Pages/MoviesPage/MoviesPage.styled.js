@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   position: relative;
   margin-bottom: 16px;
   text-transform: uppercase;
+  background-color: #ffff;
 `;
 
 export const Input = styled.input`
@@ -18,6 +19,15 @@ export const Input = styled.input`
 export const Icon = styled(HiSearch)`
   width: 20px;
   height: 20px;
-  position: absolute;
+  
   right: 6px;
+`;
+
+export const SearchBtn = styled.button`
+border-radius: 4px;
+width: 40px;
+height: 40px;
+position: absolute;
+cursor: pointer;
+background-color: #ffff;
 `;
