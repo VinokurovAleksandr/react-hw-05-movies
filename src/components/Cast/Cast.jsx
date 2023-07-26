@@ -5,7 +5,7 @@ import {fetchMovieCast} from 'components/API/Api';
 import { Loader } from 'components/Loader/Loader';
 
 
-function Cast () {
+ const Cast  = () => {
 
  const { movieId } = useParams();
     const [cast, setCast] = useState([]);
@@ -52,4 +52,4 @@ function Cast () {
          </>
      ) };
 
-      export default Cast;
+export default Cast;

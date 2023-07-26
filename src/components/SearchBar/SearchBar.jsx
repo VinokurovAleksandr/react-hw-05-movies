@@ -33,10 +33,7 @@ import { toast } from 'react-toastify';
     <Wrapper>
     
     <SearchForm onSubmit={handleSubmit}>
-      
       <Button type="submit">
-        
-     
         <ImSearch />
         <ButtonLabel>Search</ButtonLabel>
     </Button>

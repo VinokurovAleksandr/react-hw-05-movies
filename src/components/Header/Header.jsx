@@ -5,7 +5,7 @@ import { NavConatiner, NavList, Nav,Link } from './Header.styled';
 
 
 
-export const Header = () => {
+ const Header = () => {
 
     return (
         <Container>
@@ -26,7 +26,7 @@ export const Header = () => {
     )
 };
 
-
+export default Header;
 // import { Outlet } from "react-router-dom";
 // import { Container, HeaderSection, Link } from "./Header.styled";
 

@@ -4,7 +4,7 @@ import { useParams, } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import {fetchMovieReviews} from 'components/API/Api';
 
-function Reviews () {
+ const Reviews = () => {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -46,9 +46,7 @@ function Reviews () {
                         ))}
                     </ul>
                 )}
-            {/* <Loader loading={loading} /> */}
-        </>
-        
+        </> 
     );
 };
 
