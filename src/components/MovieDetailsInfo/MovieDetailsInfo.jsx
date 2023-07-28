@@ -1,5 +1,21 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import {BackLink} from 'components/BackLink/BackLink';
+import { BackLink } from 'components/BackLink/BackLink';
+import {
+    Main,
+    Container,
+    Title,
+    MovieImg,
+    MovieSubTitle,
+    Text,
+    CastListSyled,
+    ItemStyledLink,
+    ReviewsItemStyled,
+    VoteWrapper,
+    FlexContainer,
+    VoteAverage,
+    AboutTitle,
+    AddTitle,
+} from './MovieDetailsInfo.styled'
 
 export const MovieDetailsInfo = ({ movie }) => {
 
@@ -22,53 +38,66 @@ export const MovieDetailsInfo = ({ movie }) => {
     return (
         <>
             {movie && (
-                <main>
+                <Main>
                     <BackLink to={backLinkHref} />
-                    <div>
-                        <h2>
-                            {title} {release_date && (new Date(release_date).getFullYear() || 'Unknown') }
-                        </h2>
-                    </div>
-                    <div>
-                        <img src={poster_path
+                    
+                    <Container>
+                    
+                            <MovieImg src={poster_path
                             ? 'https://image.tmdb.org/t/p/w500' + poster_path
                             : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'}
                             alt={title} />
-                    </div>
-                    <div>
-                        <h3>Vote/Votes {vote_average && Number(vote_average).toFixed(2)} / {vote_count}</h3>
-                    </div>
-                    
-                    <div>
-                        <h3>Popularity {popularity && Number(popularity).toFixed(1)} </h3>
-                    </div>
-                    <div>
-                        <h3>About </h3>
-                        <p>{overview}</p>
-                    </div>
-                    
-                    <div>
-                        <h2>Genres</h2>
-                        <p>
-                            {genres.map(gerne => gerne.name).join(", ")}
-                        </p>
-                    </div>
+                       
+                       
+                        <FlexContainer>
+                            
+                       
+                         <Title>
+                            {title} {release_date && (new Date(release_date).getFullYear() || 'Unknown') }
+                        </Title>
+                        
+                        
+                            <VoteWrapper>
+                                <MovieSubTitle>Vote/Votes</MovieSubTitle>
+                                
+                                <VoteAverage>
+                                {vote_average && Number(vote_average).toFixed(2)} / {vote_count}
+                                    </VoteAverage>
+                                
+                            </VoteWrapper>
+                            
 
-                    <div>
-                        <h3>Additional information</h3>
-                        <ul>
-                            <li>
-                                <NavLink to="cast" state={{ from: backPageLink }}>Cast</NavLink>
-                              
-                            </li>
-                            <li>
-                                <NavLink to="reviews" state={{ from: backPageLink }}>Reviews</NavLink>
-                              
-                            </li>
-                        </ul>
+                            <VoteWrapper>
+                                      <MovieSubTitle>Popularity</MovieSubTitle>
+                                <VoteAverage>
+                                    {popularity && Number(popularity).toFixed(1)}
+                                 </VoteAverage>
+                            </VoteWrapper>
+                      
+                        
+                            <VoteWrapper>
+                                   <MovieSubTitle>Genres</MovieSubTitle>
+                        <VoteAverage>
+                            {genres.map(gerne => gerne.name).join(", ")}
+                        </VoteAverage>
+                        </VoteWrapper>
+                      
+                        <AboutTitle>About </AboutTitle>
+                        <Text>{overview}</Text>
+                    </FlexContainer>
+                        </Container>
+                        
+                    <AddTitle>Additional information</AddTitle>
+                    <FlexContainer>
+                        
+                        <CastListSyled>                           
+                                <ItemStyledLink to="cast" state={{ from: backPageLink }}>Cast</ItemStyledLink>
+                                <ItemStyledLink to="reviews" state={{ from: backPageLink }}>Reviews</ItemStyledLink>
+                        </CastListSyled>
+
                         <hr />
-                    </div>
-                </main>
+                    </FlexContainer>
+                </Main>
             )}
         </>
        

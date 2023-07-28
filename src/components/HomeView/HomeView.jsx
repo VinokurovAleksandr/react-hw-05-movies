@@ -34,9 +34,11 @@ import { Loader } from 'components/Loader/Loader';
     
     return (
         <>
+            <main>
             {loading && <Loader loading={ loading} />}
             <MoviesTitle>Tending today</MoviesTitle>  
-            <MovieList movies={movies } />  
+                <MovieList movies={movies} />  
+            </main>
         </>       
     )
 };
