@@ -74,7 +74,7 @@ export const Text = styled.p`
 `;
 
 export const FlexContainer = styled.div`
- 
+ margin-left: 50px;
 
 `;
 export const CastListSyled = styled.div`

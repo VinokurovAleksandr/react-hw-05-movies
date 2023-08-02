@@ -1,9 +1,12 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import noPhoto from 'components/images/no-image-available.jpg';
 import {
     List,
     MovieItem,
     MovieImage,
-    MovieTitle
+    MovieTitle,
+    MovieLink,
+    MovieContainer
     } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
@@ -13,26 +16,29 @@ export const MovieList = ({ movies }) => {
     return (
         
         <>
+            <MovieContainer>
             <List>
                 {movies.map(({id,poster_path,title,release_date}) =>
 
                     <MovieItem key={id}>
 
-                        <Link to={`/movies/${id}`} state={{ from: location }}>
+                        <MovieLink to={`/movies/${id}`} state={{ from: location }}>
                             <MovieImage
                                 width='200 px'
                                 src={poster_path
                                     ? 'https://image.tmdb.org/t/p/w500' + poster_path
-                                    : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'}
+                                    : noPhoto}
                                 alt={title} />
                             <MovieTitle>
                                 {title} ({new Date(release_date).getFullYear()})
-                            </MovieTitle></Link>
+                            </MovieTitle></MovieLink>
                 
                   
                     </MovieItem>
                 )}
             </List>
+            </MovieContainer>
+            
            
         </>
     )

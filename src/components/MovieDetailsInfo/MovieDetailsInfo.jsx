@@ -1,5 +1,7 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { BackLink } from 'components/BackLink/BackLink';
+import noPhoto from 'components/images/no-image-available.jpg';
+
 import {
     Main,
     Container,
@@ -9,7 +11,6 @@ import {
     Text,
     CastListSyled,
     ItemStyledLink,
-    ReviewsItemStyled,
     VoteWrapper,
     FlexContainer,
     VoteAverage,
@@ -45,7 +46,7 @@ export const MovieDetailsInfo = ({ movie }) => {
                     
                             <MovieImg src={poster_path
                             ? 'https://image.tmdb.org/t/p/w500' + poster_path
-                            : 'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg'}
+                            : noPhoto}
                             alt={title} />
                        
                        

@@ -1,4 +1,4 @@
-import {Wrapper,SearchForm, Button, ButtonLabel, Input} from './SearchBar.styled'
+import {SearchContainer ,SearchForm, Button, ButtonLabel, Input} from './SearchBar.styled'
 import { useState,} from 'react';
 import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
@@ -30,7 +30,7 @@ import { toast } from 'react-toastify';
 
   
   return (
-    <Wrapper>
+    <SearchContainer>
     
     <SearchForm onSubmit={handleSubmit}>
       <Button type="submit">
@@ -49,7 +49,7 @@ import { toast } from 'react-toastify';
     />
 
     </SearchForm>
-  </Wrapper> 
+  </SearchContainer> 
   )
 };
 

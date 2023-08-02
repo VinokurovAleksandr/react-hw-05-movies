@@ -17,13 +17,6 @@ import { NavConatiner, Nav,Link } from './Header.styled';
             </NavConatiner>
             <Outlet /> 
        </Container>
-    //   <NavConatiner>
-    //             <Nav>
-    //                 <Link to='/'>Home</Link>
-    //                 <Link to='/movies'>Movies</Link>
-    //             </Nav>             
-    //         <Outlet />
-    //     </NavConatiner>
     )
 };
 

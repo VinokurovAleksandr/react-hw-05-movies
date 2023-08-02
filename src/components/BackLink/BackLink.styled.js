@@ -10,10 +10,13 @@ export const StyledLink = styled(NavLink)`
   text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
+  margin: 20px 0 20px 0;
+
 
   
 
-  :hover {
-    color: blue;
+  &:hover,
+  :focus {
+    color: rgb(81, 124, 232);
   }
 `;

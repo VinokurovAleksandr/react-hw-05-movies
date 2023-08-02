@@ -32,10 +32,11 @@ export const Link = styled(NavLink)`
 
   &.active {
     color: white;
-    background-color: blue;
+
   }
 
-  :hover {
+  :hover,
+  :focus {
     background: white;
   }
 `;

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Outlet} from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 import { fetchMovieDetails } from 'components/API/Api'
 import { Loader } from 'components/Loader/Loader';
@@ -20,10 +21,10 @@ const MovieDetails = () => {
                 setLoading(true)
                 const result = await fetchMovieDetails(movieId)
               
-                
+              
                 setMovie(result)
             } catch (error) {
-                console.log(error);
+                toast.error('Sorry, we could not find info about this movie');
                 
             } finally {
                 setLoading(false)

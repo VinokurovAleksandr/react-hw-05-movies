@@ -1,5 +1,5 @@
 import React from 'react';
-// import { ToastContainer } from 'react-toastify';
+import { Toaster } from 'react-hot-toast';
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Loader } from './Loader/Loader';
@@ -46,7 +46,12 @@ export function App() {
         <Route path='*' element={<NotFoundView/>} />
         </Routes>  
         <GlobalStyle/>
-    </Suspense>
+      </Suspense>
+      <Toaster
+        position="top-right"
+        autoClose={3000}
+        
+      />
     </>
   )
 };

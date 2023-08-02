@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 
 
 import { MoviesTitle } from './HomeView.styled';
@@ -22,7 +23,7 @@ import { Loader } from 'components/Loader/Loader';
                 const { results } = await fetchTrendingMovies();
                 setMovies(results)
             } catch (error) {
-                console.log(error)
+                toast.error('Sorry, something went wrong. Try reloading the page');
             } finally {
                 setLoading(false)
             }
@@ -37,8 +38,11 @@ import { Loader } from 'components/Loader/Loader';
             <main>
             {loading && <Loader loading={ loading} />}
             <MoviesTitle>Tending today</MoviesTitle>  
-                <MovieList movies={movies} />  
+                <MovieList movies={movies} /> 
+                  
             </main>
+         
+            
         </>       
     )
 };

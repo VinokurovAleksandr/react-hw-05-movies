@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import {Loader} from 'components/Loader/Loader';
-// import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-hot-toast';
 import {searchMovie} from 'components/API/Api';
 
 import { SearchBar } from 'components/SearchBar/SearchBar'
@@ -29,12 +29,14 @@ import {MovieList} from 'components/MovieList/MovieList';
             try {
                 setLoading(true);
                 const { results } = await searchMovie(movie);
-
+                  if (results.length === 0) { 
+                    toast.error(`Sorry, we couldn't find the movie for you requested , try again`);
+                }
                 setMovies(results);
-                console.log(results);
+            
 
             } catch (error) {
-                console.log(error);
+                toast.error('Sorry, movie not found!')
                 
             } finally {
                 setLoading(false);

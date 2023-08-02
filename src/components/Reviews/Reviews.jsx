@@ -2,7 +2,15 @@ import { useState, useEffect } from 'react';
 import { useParams, } from 'react-router-dom';
 
 import { Loader } from 'components/Loader/Loader';
-import {fetchMovieReviews} from 'components/API/Api';
+import { fetchMovieReviews } from 'components/API/Api';
+import {
+    ReviewsContainer,
+    NoFound,
+    Reviewslist,
+    ReviewsItem,
+    ReviewsComents,
+    ReviewsAthor,
+} from './Reviews.styled'
 
  const Reviews = () => {
     const { movieId } = useParams();
@@ -33,18 +41,21 @@ import {fetchMovieReviews} from 'components/API/Api';
         <>
             {loading && <Loader loading={loading} />}
             {reviews.length === 0 && !loading ?
-                (<h3>Reviews is not found! <span> Be the first </span>  </h3>) :
+                ( 
+                    <NoFound>Reviews is not found!  Be the first   </NoFound>) :
                 (
-                    <ul>
+                     <ReviewsContainer>
+                     <Reviewslist>
                         {reviews.map(({ id, author, content }) => (
                     
-                            <li key={id}>
-                                <p>{author}</p>
-                                <p>{content}</p>
-                            </li>
+                            <ReviewsItem key={id}>
+                                <ReviewsAthor>{author}</ReviewsAthor>
+                                <ReviewsComents>{content}</ReviewsComents>
+                            </ReviewsItem>
                     
                         ))}
-                    </ul>
+                    </Reviewslist>
+                </ReviewsContainer>
                 )}
         </> 
     );
