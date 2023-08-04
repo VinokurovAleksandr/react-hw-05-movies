@@ -129,17 +129,5 @@ MovieDetailsInfo.propTypes = {
   }).isRequired,
 };
 
-// MovieDetailsInfo.propTypes = {
-//     movie: PropTypes.arrayOf(PropTypes.shape({
-//         title: PropTypes.string.isRequired,
-//         // release_date: PropTypes.number.isRequired,
-//         // poster_path: PropTypes.string.isRequired,
-//         // vote_average: PropTypes.number.isRequired,
-//         // vote_count: PropTypes.number.isRequired,
-//         // popularity: PropTypes.number.isRequired,
-//         // overview: PropTypes.string.isRequired,
-//         // genres: PropTypes.object.isRequired,
 
-//     })),
-// };
 

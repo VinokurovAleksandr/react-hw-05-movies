@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 
 
 
+
+
 export const BackLink = ({to}) => {
-console.log(to);
 
     return (
         <StyledLink  to={to}>
@@ -16,6 +17,6 @@ console.log(to);
     )
 };
 
-// BackLink.propTypes = {
-//     to: PropTypes.array.isRequired,
-// };
+BackLink.propTypes = {
+    to: PropTypes.object.isRequired,
+};

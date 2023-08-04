@@ -23,6 +23,6 @@ export function Loader () {
     )
 };
 
-Loader.popTypes = {
+Loader.propTypes = {
     visible: PropTypes.bool.isRequired,
 };
