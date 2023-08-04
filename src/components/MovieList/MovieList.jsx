@@ -1,4 +1,6 @@
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 import noPhoto from 'components/images/no-image-available.jpg';
 import {
     List,
@@ -8,6 +10,8 @@ import {
     MovieLink,
     MovieContainer
     } from './MovieList.styled';
+
+    
 
 export const MovieList = ({ movies }) => {
 
@@ -41,5 +45,13 @@ export const MovieList = ({ movies }) => {
             
            
         </>
+    )
+};
+
+MovieList.propTypes = {
+    movie: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+        })
     )
 };

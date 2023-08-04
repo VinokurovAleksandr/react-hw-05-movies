@@ -103,7 +103,7 @@ export const ItemStyledLink = styled(NavLink)`
   color: #212121;
 
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   width: 160px;
   height: 44px;
   background-color: rgb(112, 128, 144);
@@ -117,7 +117,7 @@ export const ItemStyledLink = styled(NavLink)`
 
 
   &.active {
-    background-color: rgb(81, 124, 232);
+    background-color: #ff7d3c;
     color: #ffffff;
     border: transparent;
 
@@ -125,7 +125,7 @@ export const ItemStyledLink = styled(NavLink)`
 
   &:hover,
   :focus:not(.active) {
-    background-color: rgb(81, 124, 232);
+    background-color: #ff7d3c;
     color: #ffffff;
     border: transparent;
     

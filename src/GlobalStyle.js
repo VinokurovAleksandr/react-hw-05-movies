@@ -1,12 +1,18 @@
 import 'modern-normalize';
 
 import { createGlobalStyle } from 'styled-components';
+// import BackgroundImage from 'components/images/backgroundImage.jpg'
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    font-family:  'Montserrat', sans-serif;
+   
+
+        
+
+    font-family: 'PT Serif', serif;
     font-weight: 400;
-    background-color: rgb(220, 220, 220);
+    ${'' /* background-color: rgb(220, 220, 220); */}
+    background-color: rgb(242, 230, 177);
   }
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

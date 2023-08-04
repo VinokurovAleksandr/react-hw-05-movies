@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { BackLink } from 'components/BackLink/BackLink';
+
 import noPhoto from 'components/images/no-image-available.jpg';
 
 import {
@@ -16,29 +18,32 @@ import {
     VoteAverage,
     AboutTitle,
     AddTitle,
-} from './MovieDetailsInfo.styled'
+} from './MovieDetailsInfo.styled';
 
-export const MovieDetailsInfo = ({ movie }) => {
-
-    const location = useLocation();
-    const backPageLink = location.state?.from ?? '/';
-    const backLinkHref = location.state?.from ?? "/movies";
-    
-    const {
-        title,
+export const MovieDetailsInfo = ({
+    movie:
+    { title,
         release_date,
         poster_path,
         vote_average,
         vote_count,
         popularity,
         overview,
-        genres = [],
-        
-    } = movie;
+        genres = [], }
+    
+ }) => {
+    
+    
+    const location = useLocation();
+    
+    const backPageLink = location.state?.from ?? '/';
+    const backLinkHref = location.state?.from ?? "/movies";
+    
+   
 
     return (
         <>
-            {movie && (
+             
                 <Main>
                     <BackLink to={backLinkHref} />
                     
@@ -99,9 +104,42 @@ export const MovieDetailsInfo = ({ movie }) => {
                         <hr />
                     </FlexContainer>
                 </Main>
-            )}
+            
         </>
        
     )
 
 };
+
+
+MovieDetailsInfo.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    popularity: PropTypes.number,
+    poster_path: PropTypes.string,
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+      })
+    ),
+    original_title: PropTypes.string,
+    vote_average: PropTypes.number,
+    vote_count: PropTypes.number,
+    overview: PropTypes.string,
+  }).isRequired,
+};
+
+// MovieDetailsInfo.propTypes = {
+//     movie: PropTypes.arrayOf(PropTypes.shape({
+//         title: PropTypes.string.isRequired,
+//         // release_date: PropTypes.number.isRequired,
+//         // poster_path: PropTypes.string.isRequired,
+//         // vote_average: PropTypes.number.isRequired,
+//         // vote_count: PropTypes.number.isRequired,
+//         // popularity: PropTypes.number.isRequired,
+//         // overview: PropTypes.string.isRequired,
+//         // genres: PropTypes.object.isRequired,
+
+//     })),
+// };
+

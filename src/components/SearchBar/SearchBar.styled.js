@@ -30,7 +30,7 @@ export const SearchForm = styled.form`
     width: 100%;
     max-width: 600px;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 20px;
     overflow: hidden;`  
 
 

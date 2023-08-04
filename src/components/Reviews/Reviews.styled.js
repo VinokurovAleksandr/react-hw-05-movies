@@ -5,6 +5,8 @@ export const ReviewsContainer = styled.div`
 
 `;
 export const NoFound = styled.h3`
+    text-align: center;
+    margin-bottom: 50px;
 
 `;
 export const Reviewslist = styled.ul`

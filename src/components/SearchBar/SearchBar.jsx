@@ -1,4 +1,5 @@
-import {SearchContainer ,SearchForm, Button, ButtonLabel, Input} from './SearchBar.styled'
+import { SearchContainer, SearchForm, Button, ButtonLabel, Input } from './SearchBar.styled';
+import PropTypes from 'prop-types';
 import { useState,} from 'react';
 import { ImSearch } from 'react-icons/im';
 import { toast } from 'react-toastify';
@@ -53,3 +54,7 @@ import { toast } from 'react-toastify';
   )
 };
 
+
+SearchBar.protoTypes = {
+  onSubmit: PropTypes.func.isRequire,
+};
