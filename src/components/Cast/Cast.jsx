@@ -24,8 +24,6 @@ import {
              setLoading(true)
             const {cast} = await fetchMovieCast(movieId)  
             setCast(cast)
-            console.log(cast);
-            
            
         } catch (error) {
             toast.error('Sorry, we could not find info about this movie');

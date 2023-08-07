@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
 
     font-family: 'PT Serif', serif;
     font-weight: 400;
-    ${'' /* background-color: rgb(220, 220, 220); */}
     background-color: rgb(242, 230, 177);
   }
   code {
