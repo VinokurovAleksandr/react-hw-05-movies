@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode >
      
-  <BrowserRouter basename='react-hw-05-movies'>
+  <BrowserRouter basename='/react-hw-05-movies'>
       <App />
     
     </BrowserRouter>
