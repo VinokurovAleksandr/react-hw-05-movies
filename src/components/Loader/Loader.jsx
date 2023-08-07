@@ -1,5 +1,5 @@
 import { ThreeDots } from 'react-loader-spinner';
-import PropTypes from 'prop-types';
+
 
 import {LoaderStyle} from './Loader.styled'
 
@@ -23,6 +23,4 @@ export function Loader () {
     )
 };
 
-Loader.propTypes = {
-    visible: PropTypes.bool.isRequired,
-};
+

@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { BackLink } from 'components/BackLink/BackLink';
 
 import noPhoto from 'components/images/no-image-available.jpg';
@@ -21,6 +21,7 @@ import {
 } from './MovieDetailsInfo.styled';
 
 export const MovieDetailsInfo = ({
+    
     movie:
     { title,
         release_date,
@@ -32,6 +33,8 @@ export const MovieDetailsInfo = ({
         genres = [], }
     
  }) => {
+
+    
     
     
     const location = useLocation();
@@ -112,22 +115,21 @@ export const MovieDetailsInfo = ({
 };
 
 
-MovieDetailsInfo.propTypes = {
-  movie: PropTypes.shape({
-    title: PropTypes.string,
-    popularity: PropTypes.number,
-    poster_path: PropTypes.string,
-    genres: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-      })
-    ),
-    original_title: PropTypes.string,
-    vote_average: PropTypes.number,
-    vote_count: PropTypes.number,
-    overview: PropTypes.string,
-  }).isRequired,
-};
-
+// MovieDetailsInfo.propTypes = {
+//   movie: PropTypes.shape({
+//     title: PropTypes.string,
+//     popularity: PropTypes.number,
+//     poster_path: PropTypes.string,
+//     genres: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         name: PropTypes.string,
+//       })
+//     ),
+//     original_title: PropTypes.string,
+//     vote_average: PropTypes.number,
+//     vote_count: PropTypes.number,
+//     overview: PropTypes.string,
+//   }).isRequired,
+// };
 
 
